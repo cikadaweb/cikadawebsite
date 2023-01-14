@@ -1,11 +1,30 @@
 <template>
-  <Tutorial />
+  <div>
+
+    <AppContainer>
+      <TheHeader />
+      <Main />
+    </AppContainer>
+
+    <div class="recent-posts-container">
+      <AppContainer>
+        <RecentPosts />
+      </AppContainer>
+    </div>
+
+    <AppContainer>
+      <FeaturedWorks />
+      <TheFooter />
+    </AppContainer>
+
+  </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<style lang="scss">
+@import '@/assets/scss/_variables.scss';
 
-export default Vue.extend({
-  name: 'IndexPage',
-})
-</script>
+.recent-posts-container {
+  background-color: $bg-blue-color;
+}
+</style>
+
