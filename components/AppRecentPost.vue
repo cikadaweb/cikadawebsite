@@ -63,11 +63,17 @@ const props = defineProps({
 .recent-post__title {
   @include font(26px, 700, 38px);
   color: $blue-dark-color;
+  @include for-size(tablet) {
+    @include font(22px, 700, 30px);
+  }
 }
 .recent-post__info {
+  @include font(18px, 400, 26px);
   display: flex;
   margin-bottom: 10px;
-
+  @include for-size(tablet) {
+    @include font(16px, 400, 24px);
+  }
 }
 .recent-post__info-date {
   padding-right: 20px;
@@ -78,6 +84,6 @@ const props = defineProps({
   border-right: 1px solid transparent;
 }
 .recent-post__text {
-
+  @include font(16px, 400, 24px);
 }
 </style>

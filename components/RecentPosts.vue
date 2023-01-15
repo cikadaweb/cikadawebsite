@@ -47,6 +47,9 @@ const posts = ref([
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @include for-size(tablet) {
+    justify-content: center;
+  }
 }
 .recent-posts__title {
   @include font(22px, 400, 60px);
@@ -57,13 +60,28 @@ const posts = ref([
   @include font(16px, 400, 24px);
   color: $blue-light-color2;
   text-decoration: none;
+  @include for-size(tablet) {
+    display: none;
+  }
 }
 .recent-posts__row {
   display: flex;
   margin: 0 -10px;
+  @include for-size(tablet) {
+    flex-wrap: wrap;
+  }
 }
 .recent-posts__column {
   width: calc(100% / 10) * 5;
   padding: 0 10px;
+  @include for-size(tablet) {
+    width: 100%;
+  }
+}
+
+.recent-posts__column+.recent-posts__column {
+  @include for-size(tablet) {
+    margin-top: 30px;
+  }
 }
 </style>
