@@ -14,25 +14,22 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const posts = ref([
-  {
-    id: 1,
-    title: 'Entity Framework в WinForms',
-    publish_date: '6 Января 2023',
-    tag: 'Windows Forms',
-    text: 'На сегодняшний день Winforms все еще остается платформой для многих бизнес-приложений, ориентированных на работу с данными, и привязка данных является неотъемлемой частью разработки для Winforms. ',
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  async fetch() {
+    try {
+      await this.$store.dispatch('posts/fetchPosts');
+    } catch (e) {
+      console.error(e);
+    }
   },
-  {
-    id: 2,
-    title: 'Vuetify как начать работать',
-    publish_date: '30 Декабря 2022',
-    tag: 'Vue, Vuetify',
-    text: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.',
+  computed: {
+    posts() {
+      return this.$store.getters['posts/getPosts'];
+    }
   }
-]);
+})
 </script>
 
 <style lang="scss" scoped>

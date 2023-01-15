@@ -17,27 +17,22 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const works = ref([
-  {
-    id: 1,
-    title: 'Promo страница Mercedes Benz',
-    publish_date: '2020',
-    tag: 'Promo',
-    text: 'Промо страница продажи новой модели Mercedez бизнес класса!',
-    image_url: 'promo-mercedes.png',
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  async fetch() {
+    try {
+      await this.$store.dispatch('works/fetchWorks');
+    } catch (e) {
+      console.error(e);
+    }
   },
-  {
-    id: 2,
-    title: 'Сервис доставки еды на дом',
-    publish_date: '2021',
-    tag: 'Интернет-магазин',
-    text: 'Рестораны различных кухонь всего за 30 минут.',
-    image_url: 'delivery-food.png',
+  computed: {
+    works() {
+      return this.$store.getters['works/getWorks'];
+    }
   }
-]);
+})
 </script>
 
 <style lang="scss" scoped>
