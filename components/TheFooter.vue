@@ -2,16 +2,16 @@
   <footer class="footer">
     <ul class="footer__links">
       <li class="header__item">
-        <router-link to="/" class="header__link header__link_github">GitHub</router-link>
+        <a href="https://github.com/GAAdel" target="_blank" class="header__link header__link_github">GitHub</a>
       </li>
       <li class="header__item">
-        <router-link to="/" class="header__link header__link_linkedin">Linkedin</router-link>
+        <a href="https://www.linkedin.com/in/cikada/" target="_blank" class="header__link header__link_linkedin">Linkedin</a>
       </li>
       <li class="header__item">
-        <router-link to="/" class="header__link header__link_vk">Vk</router-link>
+        <a href="" class="header__link header__link_vk" target="_blank">Vk</a>
       </li>
       <li class="header__item">
-        <router-link to="/" class="header__link header__link_telegram">Telegram</router-link>
+        <a href="#" class="header__link header__link_telegram" target="_blank">Telegram</a>
       </li>
     </ul>
     <div class="footer__copyright">
