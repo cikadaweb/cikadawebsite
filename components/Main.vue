@@ -13,7 +13,7 @@
       </div>
 
       <div class="main__author__img">
-          <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'cikada.jpg'" />
+          <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'cikada-logo.jpg'" />
       </div>
     </div>
   </div>
