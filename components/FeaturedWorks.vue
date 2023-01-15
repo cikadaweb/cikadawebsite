@@ -1,7 +1,7 @@
 <template>
   <div class="featured-works">
 
-    <div class="featured-flag">
+    <div class="featured-works__flag">
 
     </div>
 
@@ -47,18 +47,20 @@ const works = ref([
   padding-bottom: 18px;
   margin-bottom: 83px; // ToDo
 }
-.featured-flag { //ToDo
+.featured-works__flag { //ToDo
   width: 11px;
   height: 36px;
   left: 149px;
   top: 991px;
-
-  background: #C4C4C4;
+  background: $gray-color;
 }
 .featured-works__title {
   @include font(22px, 400, 60px);
   color: $blue-dark-color;
   margin-bottom: 20px;
+  @include for-size(tablet) {
+    text-align: center;
+  }
 }
 .featured-works__row {
   display: flex;
