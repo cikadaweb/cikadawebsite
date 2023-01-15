@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <div class="main__author">
+
       <div class="main__author-info">
         <h1 class="main__author-name">Hi, I am Adel,
           Frontend Developer
@@ -10,6 +11,7 @@
         </div>
         <button class="button main__author-button" type="button">Download Resume</button>
       </div>
+
       <div class="main__author__img">
           <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'cikada.jpg'" />
       </div>
@@ -24,16 +26,36 @@
 .main {
   border-top: 34px solid $gray-color;
   margin-bottom: 71px;
+  @include for-size(tablet) {
+    border-top: 0;
+  }
 }
 .main__author {
   display: flex;
+  @include for-size(tablet) {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .main__author-info {
   width: calc(100% / 10) * 7;
+  @include for-size(tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
 }
 .main__author__img {
   width: calc(100% / 10) * 3;
+  @include for-size(tablet) {
+    width: calc(100% / 4) * 2;
+    order: -1;
+  }
 }
 .main__author-name {
   @include font(44px, 700, 60px);
@@ -41,6 +63,10 @@
   margin: 0;
   margin-bottom: 40px;
   max-width: 416px;
+  @include for-size(tablet) {
+    @include font(32px, 700, 40px);
+    margin-top: 35px;
+  }
 }
 .main__author-text {
   @include font(16px, 400, 24px);
