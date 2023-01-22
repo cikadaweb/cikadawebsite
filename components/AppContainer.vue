@@ -8,7 +8,7 @@
 @import '@/assets/scss/_mixins.scss';
 @import '@/assets/scss/_variables.scss';
 .container {
-  max-width: 1024px;
+  max-width: 1151px;
   padding: 0 148px;
   margin: 0 auto;
   @include for-size(tablet) {
