@@ -40,7 +40,6 @@ export default Vue.extend({
 @import '@/assets/scss/_variables.scss';
 .featured-works {
   padding-bottom: 18px;
-  margin-bottom: 83px; // ToDo
 }
 .featured-works__flag { //ToDo
   width: 11px;
@@ -60,6 +59,7 @@ export default Vue.extend({
 .featured-works__row {
   display: flex;
   flex-direction: column;
+  margin-bottom: 83px
 }
 .featured-works__column {
   border-bottom: 1px solid $gray-light-color2;
