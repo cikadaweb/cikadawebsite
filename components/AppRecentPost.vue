@@ -1,5 +1,5 @@
 <template>
-  <div class="recent-post">
+  <div class="recent-post" :class="isBlogPage ? 'recent-post_page' : ''">
     <div class="recent-post__header">
       <h2 class="recent-post__title">
         {{ item.title }}
@@ -39,6 +39,10 @@ const props = defineProps({
     type: Object as PropType<IPropsPost>,
     required: true,
   },
+  isBlogPage: {
+    type: Boolean,
+    required: false
+  }
 });
 
 </script>
@@ -55,6 +59,13 @@ const props = defineProps({
   box-shadow: 0px 4px 10px rgba(187, 225, 250, 0.25);
   border-radius: 4px;
 }
+
+.recent-post_page {
+  padding: 0 0 30px;
+  border-bottom: 1px solid $gray-light-color2;
+  margin-bottom: 30px;
+  box-shadow: none;
+}
 .recent-post__header {
 }
 .recent-post__body {
@@ -62,7 +73,7 @@ const props = defineProps({
 }
 .recent-post__title {
   @include font(26px, 700, 38px);
-  color: $blue-dark-color;
+  margin: 0 0 20px;
   @include for-size(tablet) {
     @include font(22px, 700, 30px);
   }

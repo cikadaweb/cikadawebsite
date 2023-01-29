@@ -2,9 +2,9 @@
   <div class="recent-posts">
     <div class="recent-posts__nav">
       <div class="recent-posts__title">
-        Recent posts
+        Последние посты
       </div>
-      <nuxt-link class="recent-posts__link" to="/blog">View all</nuxt-link>
+      <nuxt-link class="recent-posts__link" to="/blog">Все</nuxt-link>
     </div>
     <div class="recent-posts__row">
       <div class="recent-posts__column" v-for="post in posts" :key="post.id">
