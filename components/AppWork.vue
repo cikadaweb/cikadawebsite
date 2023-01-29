@@ -3,12 +3,16 @@
 
     <div class="work-card__row">
       <div class="work-card__column work-card__column_image">
-        <v-picture :classNameContainer="'work-card__picture'" :classNameImage="'work-card__img'" :imageUrl="item.image_url" />
+        <a class="work-card__link" :href="item.link" target="_blank">
+          <v-picture :classNameContainer="'work-card__picture'" :classNameImage="'work-card__img'" :imageUrl="item.image_url" />
+        </a>
       </div>
 
       <div class="work-card__column work-card__column_details">
         <div class="work-card__details">
-          <h2 class="work-card__title">{{ item.title }}</h2>
+          <h2 class="work-card__title">
+            <a class="work-card__link" :href="item.link" target="_blank">{{ item.title }}</a>
+          </h2>
           <span class="work-card__info__badge">{{ item.publish_date }}</span>
           <span class="work-card__info__tag">{{ item.tag }}</span>
           <div class="work-card__info__text">
@@ -33,6 +37,7 @@ interface IPropsWork {
   tag: string,
   text: string,
   image_url: string,
+  link: string,
 }
 
 const props = defineProps({
@@ -84,11 +89,14 @@ const props = defineProps({
   }
 }
 
+.work-card__link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .work-card__title {
   @include font(30px, 700, 44px);
-  color: $blue-dark-color;
-  margin: 0;
-  margin-bottom: 16px;
+  margin: 0 0 16px
 }
 
 .work-card__info__badge {

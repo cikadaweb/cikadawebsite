@@ -6,7 +6,7 @@
     </div>
 
     <div class="featured-works__title">
-      Featured works
+      Портфолио
     </div>
 
     <div class="featured-works__row">
@@ -64,5 +64,8 @@ export default Vue.extend({
 .featured-works__column {
   border-bottom: 1px solid $gray-light-color2;
   margin-bottom: 30px;
+}
+.featured-works__column:last-child {
+  margin-bottom: 0;
 }
 </style>
