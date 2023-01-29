@@ -29,15 +29,15 @@
 @import '@/assets/scss/_variables.scss';
 
 .footer {
-
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .footer__links {
   display: flex;
   justify-content: center;
   padding: 0;
   margin: 0;
-  margin: 0 -15px;
-  margin-bottom: 30px;
+  margin: 0 -15px 30px;
   list-style-type: none;
 }
 .header__item {
