@@ -3,13 +3,14 @@
     <div class="main__author">
 
       <div class="main__author-info">
-        <h1 class="main__author-name">Hi, I am Adel,
-          Frontend Developer
+        <h1 class="main__author-name">
+          <span class="visually-hidden">Создать сайт, сделать сайт, приложение, wordpress</span>
+          <span>Hi, I am Adel, Frontend Developer</span>
         </h1>
         <div class="main__author-text">
-          I am engaged in website development. Websites for your products, services and business.
+          Сайты для ваших товаров, услуг и бизнеса.
         </div>
-        <button class="button main__author-button" type="button">Download Resume</button>
+        <button class="button main__author-button" type="button">Скачать резюме</button>
       </div>
 
       <div class="main__author__img">
