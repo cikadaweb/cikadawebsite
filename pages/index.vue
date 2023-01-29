@@ -1,8 +1,6 @@
 <template>
   <div>
-
     <AppContainer>
-      <TheHeader />
       <Main />
     </AppContainer>
 
@@ -14,9 +12,7 @@
 
     <AppContainer>
       <FeaturedWorks />
-      <TheFooter />
     </AppContainer>
-
   </div>
 </template>
 
