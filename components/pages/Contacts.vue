@@ -1,13 +1,18 @@
 <template>
   <div class="contacts">
+    <AppBreadcrumb />
     <h1 class="contacts__title">Контакты</h1>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
-})
+<script>
+import AppBreadcrumb from '@/components/breadcrumb/AppBreadcrumb.vue';
+
+export default {
+  components: {
+    AppBreadcrumb
+  }
+}
 </script>
 
 <style lang="scss" scoped>
