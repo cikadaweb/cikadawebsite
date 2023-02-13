@@ -26,6 +26,8 @@
 </template>
 
 <script setup lang="ts">
+import vPicture from '@/components/pictire/v-picture.vue';
+
 import {
   defineProps, PropType,
 } from 'vue';
@@ -76,7 +78,7 @@ const props = defineProps({
 }
 
 .work-card__column_image {
-  width: calc(100% / 10) * 3;
+  width: calc(100% / 4) * 3;
   @include for-size(tablet) {
     width: 100%;
   }

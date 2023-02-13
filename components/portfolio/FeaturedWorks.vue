@@ -17,9 +17,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+import AppWork from '@/components/portfolio/AppWork.vue';
+
+export default {
   async fetch() {
     try {
       await this.$store.dispatch('works/fetchWorks');
@@ -31,8 +32,11 @@ export default Vue.extend({
     works() {
       return this.$store.getters['works/getWorks'];
     }
+  },
+  components: {
+    AppWork,
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
