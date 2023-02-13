@@ -55,16 +55,16 @@
   background-position: center;
 }
 .header__link_github {
-  background-image: url('../assets/img/social/github.svg');
+  background-image: url('../../assets/img/social/github.svg');
 }
 .header__link_linkedin {
-  background-image: url('../assets/img/social/linkedin.svg');
+  background-image: url('../../assets/img/social/linkedin.svg');
 }
 .header__link_vk {
-  background-image: url('../assets/img/social/vk.svg');
+  background-image: url('../../assets/img/social/vk.svg');
 }
 .header__link_telegram {
-  background-image: url('../assets/img/social/telegram.svg');
+  background-image: url('../../assets/img/social/telegram.svg');
 }
 .footer__copyright {
   @include font(14px, 400, 21px);
