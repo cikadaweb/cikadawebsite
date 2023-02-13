@@ -1,5 +1,6 @@
 <template>
   <div class="works">
+    <AppBreadcrumb />
     <h1 class="works__title">Работы</h1>
     <div class="works__row">
       <div class="works__column" v-for="work in works" :key="work.id">
@@ -9,9 +10,11 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+import AppWork from '@/components/portfolio/AppWork.vue';
+import AppBreadcrumb from '@/components/breadcrumb/AppBreadcrumb.vue';
+
+export default {
   async fetch() {
     try {
       await this.$store.dispatch('works/fetchWorks');
@@ -23,8 +26,11 @@ export default Vue.extend({
     works() {
       return this.$store.getters['works/getWorks'];
     }
+  },
+  components: {
+    AppWork, AppBreadcrumb,
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>
