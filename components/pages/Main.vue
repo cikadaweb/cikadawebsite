@@ -20,6 +20,16 @@
   </div>
 </template>
 
+<script>
+import vPicture from '@/components/pictire/v-picture.vue';
+
+export default {
+  components: {
+    vPicture,
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 @import '@/assets/scss/_mixins.scss';
 @import '@/assets/scss/_variables.scss';
