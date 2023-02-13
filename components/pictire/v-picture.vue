@@ -52,4 +52,12 @@ const props = defineProps<IPropsPicture>();
 .work-card__img {
   border-radius: 6px;
 }
+
+.post__picture {
+  padding-top: calc(460 / 681 * 100%);
+}
+
+.post__img {
+
+}
 </style>
