@@ -36,7 +36,7 @@ export default Vue.extend({
         {
           title: 'Блог',
           to: {
-            name: 'blog',
+            name: 'post',
           },
         },
         {
