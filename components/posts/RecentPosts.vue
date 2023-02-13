@@ -4,7 +4,7 @@
       <div class="recent-posts__title">
         Последние посты
       </div>
-      <nuxt-link class="recent-posts__link" to="/blog">Все</nuxt-link>
+      <nuxt-link class="recent-posts__link" to="/post">Все</nuxt-link>
     </div>
     <div class="recent-posts__row">
       <div class="recent-posts__column" v-for="post in posts" :key="post.id">
@@ -14,9 +14,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+<script>
+import AppRecentPost from '@/components/posts/AppRecentPost.vue';
+
+export default {
   async fetch() {
     try {
       await this.$store.dispatch('posts/fetchPosts');
@@ -28,8 +29,11 @@ export default Vue.extend({
     posts() {
       return this.$store.getters['posts/getPosts'];
     }
+  },
+  components: {
+    AppRecentPost,
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

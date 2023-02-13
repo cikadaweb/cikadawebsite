@@ -1,9 +1,9 @@
 <template>
   <div class="recent-post" :class="isBlogPage ? 'recent-post_page' : ''">
     <div class="recent-post__header">
-      <h2 class="recent-post__title">
+      <nuxt-link class="recent-post__title" :to="`/post/${item.id}`">
         {{ item.title }}
-      </h2>
+      </nuxt-link>
       <div class="recent-post__info">
         <div class="recent-post__info-date">
           {{ item.publish_date }}
@@ -26,6 +26,8 @@ import {
   defineProps, PropType,
 } from 'vue';
 
+import { useRouter } from '@nuxtjs/composition-api'
+
 interface IPropsPost {
   id: number,
   title: string,
@@ -45,12 +47,19 @@ const props = defineProps({
   }
 });
 
+const router = useRouter();
+
+const openPost = () => {
+  router.push(`/post/1`)
+}
+
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/_mixins.scss';
 @import '@/assets/scss/_variables.scss';
 .recent-post {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -72,11 +81,23 @@ const props = defineProps({
 
 }
 .recent-post__title {
+  display: inline-block;
+  max-width: 100%;
   @include font(26px, 700, 38px);
+  text-decoration: none;
+  color: inherit;
   margin: 0 0 20px;
   @include for-size(tablet) {
     @include font(22px, 700, 30px);
   }
+}
+.recent-post__title::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 .recent-post__info {
   @include font(18px, 400, 26px);
