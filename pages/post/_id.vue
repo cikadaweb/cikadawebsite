@@ -1,13 +1,18 @@
 <template>
   <div>
     <AppContainer>
-      <Contacts />
+      <Post />
     </AppContainer>
   </div>
 </template>
 
 <script setup lang="ts">
 import AppContainer from '@/components/AppContainer.vue';
-import Contacts from '@/components/pages/Contacts.vue';
+import Post from '@/components/pages/Post.vue';
+
+import { useRoute } from '@nuxtjs/composition-api'
+
+const route = useRoute();
 
 </script>
+
