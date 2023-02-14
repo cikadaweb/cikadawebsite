@@ -29,12 +29,17 @@
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore excepturi tempora iusto! Aspernatur nulla itaque debitis amet ad blanditiis temporibus maxime quis molestiae molestias alias enim odit voluptates fuga, natus earum vitae quos perferendis sed obcaecati dolorem quam dignissimos harum. Distinctio expedita, autem provident dolore adipisci fugit placeat! Temporibus, commodi?
       </p>
     </div>
+
+    <div class="post_cooments-form">
+      <h3 class="post__comments-title">Добавить комментарий</h3>
+      <AppCommentForm />
+    </div>
+
     <div class="post__comments" v-if="true">
       <h3 class="post__comments-title">Комментарии</h3>
       <AppComment
         v-for="comment in 4"
         :key="comment"
-        :item="comment"
       />
     </div>
     <div class="post__comments-placeholder" v-else>Комментариев нет</div>
@@ -43,6 +48,7 @@
 
 <script setup lang="ts">
 import vPicture from '@/components/pictire/v-picture.vue';
+import AppCommentForm from '@/components/posts/AppCommentForm.vue';
 import AppComment from '@/components/posts/AppComment.vue';
 
 import {
