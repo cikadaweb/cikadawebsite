@@ -6,7 +6,7 @@
 
       <ul class="header__links header__links_desktop">
         <li class="header__item" v-for="navigationLink in navigationList" :key="navigationLink.title">
-          <nuxt-link class="header__link" active-class="header__item_active" :to="navigationLink.to">{{ navigationLink.title }}</nuxt-link>
+          <nuxt-link class="header__link" active-class="header__link_active" :to="navigationLink.to">{{ navigationLink.title }}</nuxt-link>
         </li>
       </ul>
 
@@ -104,7 +104,7 @@ export default Vue.extend({
 .header__link:hover {
   color: #6a6e99;
 }
-.header__item_active {
+.header__link_active {
   text-decoration: underline !important;
 }
 
