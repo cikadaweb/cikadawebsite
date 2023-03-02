@@ -24,20 +24,20 @@ import {
 
 import { useRouter } from '@nuxtjs/composition-api'
 
-interface IPropsComment {
-  id: number,
-  title: string,
-  publish_date: string,
-  tag: string,
-  text: string,
-}
+// interface IPropsComment {
+//   id: number,
+//   title: string,
+//   publish_date: string,
+//   tag: string,
+//   text: string,
+// }
 
-const props = defineProps({
-  item: {
-    type: Object as PropType<IPropsComment>,
-    required: true,
-  },
-});
+// const props = defineProps({
+//   item: {
+//     type: Object as PropType<IPropsComment>,
+//     required: true,
+//   },
+// });
 
 
 </script>
