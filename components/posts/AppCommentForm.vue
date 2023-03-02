@@ -3,8 +3,29 @@
     class="comment-form"
     action="#"
     method="POST"
-    @submit.prevent="postComment"
+    @submit.prevent="submitForm"
   >
+    <h3 class="comment-form__title">Добавить комментарий</h3>
+
+    <v-input
+      label="* Ваше имя"
+      name="name"
+      placeholder="Введите имя"
+      width="100%"
+      v-model:value="v.commentAuthor.$model"
+      :error="v.commentAuthor.$errors"
+    />
+
+    <v-textarea
+      label="* Текст сообщения"
+      name="text"
+      placeholder="Введите текст комментария"
+      v-model:value="v.commentText.$model"
+      :error="v.commentText.$errors"
+    />
+
+    <button class="button comment-form__btn" type="submit">Добавить комментарий</button>
+
     <!-- <v-checkbox
       label="Согласен на обработку"
       id="isAgree"
@@ -19,26 +40,51 @@
 
 <script setup lang="ts">
 import vCheckbox from '@/components/checkbox/v-checkbox.vue';
-import vCheckboxGroup from '~/components/checkbox/v-checkbox-group.vue';
+import vCheckboxGroup from '@/components/checkbox/v-checkbox-group.vue';
+import vInput from '@/components/input/v-input.vue';
+import vTextarea from '@/components/input/v-textarea.vue';
+
+import useVuelidate from '@vuelidate/core';
+import { helpers, minLength, maxLength } from '@vuelidate/validators';
 
 import {
+  computed,
   defineProps, PropType, ref
 } from 'vue';
 
-const postComment = () => {
-  console.log('postComment: ');
+// const isAgree = ref(false);
+
+// const listOfHeroes = ref([
+//   { name: 'Spider Man', id: 'h1' },
+//   { name: 'Batman', id: 'h2' },
+//   { name: 'Tor', id: 'h3' },
+//   { name: 'Loki', id: 'h4' },
+// ]);
+
+// const selectedHeroes = ref(['h1', 'h3']);
+
+const commentAuthor = ref('');
+const commentText = ref('');
+
+const submitForm = () => {
+  const formData = {
+    commentAuthor: commentAuthor.value,
+    commentText: commentText.value,
+  }
+  console.log('submitForm: ', formData);
 }
 
-const isAgree = ref(false);
+const rules = computed(() => ({
+  commentAuthor: {
+    minLength: helpers.withMessage('Минимальная длина: 3 символа', minLength(3))
+  },
+  commentText: {
+    minLength: helpers.withMessage('Минимальная длина: 10 символов', minLength(10)),
+    maxLength: helpers.withMessage('Максимальная длина: 100 символов', maxLength(100))
+  },
+}));
 
-const listOfHeroes = ref([
-  { name: 'Spider Man', id: 'h1' },
-  { name: 'Batman', id: 'h2' },
-  { name: 'Tor', id: 'h3' },
-  { name: 'Loki', id: 'h4' },
-]);
-
-const selectedHeroes = ref(['h1', 'h3']);
+const v = useVuelidate(rules, { commentAuthor, commentText });
 
 </script>
 
@@ -47,6 +93,20 @@ const selectedHeroes = ref(['h1', 'h3']);
 @import '@/assets/scss/_variables.scss';
 
 .comment-form {
-  margin-bottom: 200px;
+  margin-bottom: 30px;
 }
+
+.comment-form__title {
+  @include font(25px, 700, 24px);
+  margin: 0;
+}
+
+.comment-form__btn {
+  @include font(16px, 400, 24px);
+  padding: 17px 20px;
+  border-radius: 16px;
+  color: $white-color;
+  background-color: $pink-color;
+}
+
 </style>

@@ -31,7 +31,6 @@
     </div>
 
     <div class="post_cooments-form">
-      <h3 class="post__comments-title">Добавить комментарий</h3>
       <AppCommentForm />
     </div>
 
