@@ -44,8 +44,22 @@ export default {
   ],
 
   fontawesome: {
+    component: 'fa',
     icons: {
-      solid: true,
+      solid: [
+        'faHouse',
+        'faPenToSquare',
+        'faFileArrowDown',
+        'faClock',
+        'faChevronLeft',
+        'faEye',
+        'faReplyAll',
+        'faChartPie',
+        'faRectangleList',
+        'faUsers',
+        'faArrowRightFromBracket',
+      ],
+      brands: true,
     },
   },
 
