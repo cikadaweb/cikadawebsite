@@ -5,14 +5,13 @@
         `btn_${color}`,
         { 'btn_rounded': rounded },
         { 'btn_outlined': outlined },
-        { 'btn_icon': icon },
         { 'btn_medium': size === 'medium' },
         { 'btn_large': size === 'large' }
       ]"
       :disabled="disabled"
       @click="clickOnButton">
-    <font-awesome-icon :icon="`fa-regular fa-${icon}`" />
-    <span>{{ label }}</span>
+    <span class="btn__text">{{ label }}</span>
+    <fa class="btn__icon" :icon="`${icon}`" />
   </button>
 </template>
 
@@ -99,11 +98,13 @@ const clickOnButton = () => {
   color: $white-color;
 }
 
-.btn_icon { // ToDo
-  // padding: 0;
-  // width: 40px;
-  // height: 40px;
-  // border-radius: 50%;
+.btn__text {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.btn_icon {
+
 }
 
 .btn_medium {
