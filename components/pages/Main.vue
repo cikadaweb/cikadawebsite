@@ -10,24 +10,20 @@
         <div class="main__author-text">
           Сайты для ваших товаров, услуг и бизнеса.
         </div>
-        <button class="button main__author-button" type="button">Скачать резюме</button>
+        <v-button label="Скачать резюме" color="primary" size="large" />
       </div>
 
       <div class="main__author__img">
-          <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'cikada-logo.jpg'" />
+        <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'cikada-logo.jpg'" />
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import vPicture from '@/components/pictire/v-picture.vue';
+import vButton from '@/components/button/v-button.vue';
 
-export default {
-  components: {
-    vPicture,
-  }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -84,12 +80,5 @@ export default {
   color: $blue-dark-color;
   margin-bottom: 50px;
   max-width: 416px;
-}
-.main__author-button {
-  @include font(20px, 500, 29px);
-  padding: 17px 20px;
-  border-radius: 2px;
-  color: $white-color;
-  background-color: $pink-color;
 }
 </style>

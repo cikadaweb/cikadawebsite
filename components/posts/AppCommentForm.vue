@@ -24,7 +24,7 @@
       :error="v.commentText.$errors"
     />
 
-    <button class="button comment-form__btn" type="submit">Добавить комментарий</button>
+    <v-button label="Добавить комментарий" color="primary" size="medium" rounded type="submit" @click="handleClick"/>
 
     <!-- <v-checkbox
       label="Согласен на обработку"
@@ -43,6 +43,7 @@ import vCheckbox from '@/components/checkbox/v-checkbox.vue';
 import vCheckboxGroup from '@/components/checkbox/v-checkbox-group.vue';
 import vInput from '@/components/input/v-input.vue';
 import vTextarea from '@/components/input/v-textarea.vue';
+import vButton from '@/components/button/v-button.vue';
 
 import useVuelidate from '@vuelidate/core';
 import { helpers, minLength, maxLength } from '@vuelidate/validators';
@@ -86,6 +87,10 @@ const rules = computed(() => ({
 
 const v = useVuelidate(rules, { commentAuthor, commentText });
 
+const handleClick = () => {
+  console.log('Press Button');
+}
+
 </script>
 
 <style lang="scss" scoped>
@@ -99,14 +104,6 @@ const v = useVuelidate(rules, { commentAuthor, commentText });
 .comment-form__title {
   @include font(25px, 700, 24px);
   margin: 0;
-}
-
-.comment-form__btn {
-  @include font(16px, 400, 24px);
-  padding: 17px 20px;
-  border-radius: 16px;
-  color: $white-color;
-  background-color: $pink-color;
 }
 
 </style>
