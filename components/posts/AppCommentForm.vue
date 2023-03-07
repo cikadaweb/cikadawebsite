@@ -24,7 +24,15 @@
       :error="v.commentText.$errors"
     />
 
-    <v-button label="Добавить комментарий" color="primary" size="medium" rounded type="submit" @click="handleClick"/>
+    <v-button
+      label="Добавить комментарий"
+      color="primary"
+      size="medium"
+      rounded
+      type="submit"
+      icon="pen-to-square"
+      @click="handleClick"
+    />
 
     <!-- <v-checkbox
       label="Согласен на обработку"

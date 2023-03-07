@@ -2,24 +2,20 @@
   <div class="post">
     <div class="post__header">
       <h3 class="post__text post__text_title">
-        <font-awesome-icon
-          class="post__back-icon"
-          :icon="['fas', 'chevron-left']"
-          @click="backToPosts"
-        /> {{ item.title }}
+        <fa class="post__back-icon" icon="chevron-left" @click="backToPosts"
+        />
+        {{ item.title }}
       </h3>
     </div>
     <div class="post__header">
       <div class="post__text">
-        <font-awesome-icon
-          :icon="['fas', 'clock']"
-        /> {{ new Date().toLocaleString() }}
+        <fa icon="clock" />
+        {{ new Date().toLocaleString() }}
       </div>
       <div
         class="post__text">
-        <font-awesome-icon
-          :icon="['fas', 'eye']"
-        />42
+        <fa icon="eye" />
+        42
       </div>
     </div>
     <div class="post__body">

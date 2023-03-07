@@ -3,7 +3,7 @@
     <div class="comment__header">
       <span class="comment__author">Person name</span>
       <span class="comment__date">
-        <font-awesome-icon :icon="['fas', 'clock']" /> {{ new Date().toLocaleString() }}
+        <fa icon="clock" /> {{ new Date().toLocaleString() }}
       </span>
     </div>
     <hr>

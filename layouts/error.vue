@@ -2,7 +2,7 @@
   <div class="error-layout">
     <AppContainer class="error-layout__container">
       <h1 class="error-layout__title">Упс, Ошибка 404 - такой страницы не существует</h1>
-      <nuxt-link class="error-layout__link" to="/">Вернуться на главную <font-awesome-icon :icon="['fas', 'reply']" /></nuxt-link>
+      <nuxt-link class="error-layout__link" to="/">Вернуться на главную <fa icon="reply-all"/></nuxt-link>
     </AppContainer>
   </div>
 </template>

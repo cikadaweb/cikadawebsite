@@ -3,27 +3,27 @@
     <ul class="aside-nav__list">
       <li class="aside-nav__item">
         <nuxt-link class="aside-nav__link" exact active-class="aside-nav__link_active" to="/admin">
-          <font-awesome-icon class="aside-nav__icon" :icon="['fas', 'clock']" />Аналитика
+          <fa class="aside-nav__icon" icon="chart-pie"/>Аналитика
         </nuxt-link>
       </li>
       <li class="aside-nav__item">
         <nuxt-link class="aside-nav__link" active-class="aside-nav__link_active" to="/admin/create">
-          <font-awesome-icon class="aside-nav__icon" :icon="['fas', 'clock']" />Создать
+          <fa class="aside-nav__icon" icon="pen-to-square"/>Создать
         </nuxt-link>
       </li>
       <li class="aside-nav__item">
         <nuxt-link class="aside-nav__link" active-class="aside-nav__link_active" to="/admin/list">
-          <font-awesome-icon class="aside-nav__icon" :icon="['fas', 'clock']" />Посты
+          <fa class="aside-nav__icon" icon="rectangle-list"/>Посты
         </nuxt-link>
       </li>
       <li class="aside-nav__item">
         <nuxt-link class="aside-nav__link" active-class="aside-nav__link_active" to="/admin/user">
-          <font-awesome-icon class="aside-nav__icon" :icon="['fas', 'clock']" />Пользователи
+          <fa class="aside-nav__icon" icon="users"/>Пользователи
         </nuxt-link>
       </li>
       <li class="aside-nav__item">
         <nuxt-link class="aside-nav__link" active-class="aside-nav__link_active" to="/admin/logout">
-          <font-awesome-icon class="aside-nav__icon" :icon="['fas', 'clock']" />Выйти
+          <fa class="aside-nav__icon" icon="arrow-right-from-bracket"/>Выйти
         </nuxt-link>
       </li>
     </ul>
@@ -62,6 +62,6 @@
 }
 
 .aside-nav__icon {
-  margin-right: 5px;
+  margin-right: 20px;
 }
 </style>

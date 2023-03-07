@@ -10,7 +10,12 @@
         <div class="main__author-text">
           Сайты для ваших товаров, услуг и бизнеса.
         </div>
-        <v-button label="Скачать резюме" color="primary" size="large" />
+        <v-button
+          label="Скачать резюме"
+          color="primary"
+          size="large"
+          icon="file-arrow-down"
+        />
       </div>
 
       <div class="main__author__img">
