@@ -69,6 +69,7 @@ const clickOnButton = () => {
   color: $white-color;
   border-radius: 2px;
   transition: .2s;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 .btn_primary {
@@ -78,6 +79,16 @@ const clickOnButton = () => {
 
 .btn_primary:enabled:hover {
   background: $pink-light-color;
+}
+
+.btn_login {
+  color: $blue-dark-color;
+  border: 1px solid $blue-dark-color;
+}
+
+.btn_login:hover {
+  background-color: $blue-dark-color;
+  color: $white-color;
 }
 
 .btn:disabled {
@@ -108,8 +119,8 @@ const clickOnButton = () => {
 }
 
 .btn_medium {
-  @include font(16px, 400, 24px);
-  padding: 17px 20px;
+  @include font(16px, 500, 24px);
+  padding: 13px 20px;
 }
 
 .btn_large {
