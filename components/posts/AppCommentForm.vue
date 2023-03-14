@@ -111,7 +111,7 @@ const handleClick = () => {
 
 .comment-form__title {
   @include font(25px, 700, 24px);
-  margin: 0;
+  margin: 0 0 50px;
 }
 
 </style>
