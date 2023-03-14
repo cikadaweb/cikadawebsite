@@ -8,52 +8,86 @@
     >
     <legend class="login__title">Авторизация</legend>
 
-    <div class="login__field">
-      <label class="login__label" for="email">Логин</label>
-      <input class="login__input" v-model="user.email" id="email" type="email" placeholder="Введите ваш email">
-    </div>
+    <v-input
+      label="* Логин"
+      name="login"
+      placeholder="Введите логин"
+      width="100%"
+      v-model:value="v$.login.$model"
+      :error="v$.login.$errors"
+    />
 
-    <div class="login__field">
-      <label class="login__label" for="password">Пароль</label>
-      <input class="login__input" v-model="user.password" id="password" type="password" placeholder="Введите ваш пароль">
-    </div>
+    <v-input
+      label="* Пароль"
+      name="password"
+      placeholder="Введите пароль"
+      width="100%"
+      v-model:value="v$.password.$model"
+      :error="v$.password.$errors"
+    />
 
-    <button class="button login__button" type="submit">
-      Войти
-    </button>
+    <v-button
+      label="Войти"
+      color="login"
+      size="medium"
+      rounded
+      type="button"
+      icon="right-to-bracket"
+    />
 
     </form>
   </div>
 </template>
 
 <script>
+import vInput from '@/components/input/v-input.vue';
+import vButton from '@/components/button/v-button.vue';
+
+import useVuelidate from '@vuelidate/core';
+import { helpers, minLength, email, maxLength } from '@vuelidate/validators';
+
+import { computed, ref } from 'vue';
+
 export default {
   layout: 'empty',
-  data() {
-    return {
-      user: {
-        email: '',
-        password: ''
+  setup() {
+    const login = ref('');
+    const password = ref('');
+
+    const rules = computed(() => ({
+      login: {
+        email: helpers.withMessage('Вы ввели неверный email', email),
+      },
+      password: {
+        minLength: helpers.withMessage('Минимальная длина: 3 символа', minLength(3))
       }
-    }
-  },
-  methods: {
-    async loginUser() {
+    }));
+
+    const v$ = useVuelidate(rules, { login, password });
+
+    const loginUser = async () => {
       try {
+        v$.value.$touch();
         const formData = {
           login: this.user.email,
           password: this.user.password
         }
         await this.$store.dispatch('auth/login', formData);
-        this.$router.push('/admin'); 
+        this.$router.push('/admin');
 
       } catch (e) {
 
       }
     }
-  }
+
+    return {
+      v$, login, password, loginUser
+    }
+  },
+  components: { vInput, vButton }
 }
 </script>
+
 
 <style lang="scss" scoped>
 @import '@/assets/scss/_mixins.scss';
@@ -72,46 +106,5 @@ export default {
 .login__title {
   @include font(30px, 700, 60px);
   margin-bottom: 20px;
-}
-
-.login__field+.login__field {
-  margin-top: 20px;
-}
-
-.login__label {
-  display: block;
-  color: $gray-light-color1;
-  margin-bottom: 5px;
-}
-
-.login__input {
- @include input-reset;
-}
-
-.login__input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 2px solid $gray-light-color2;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-}
-
-.login__input:focus {
-  outline: 2px solid $blue-light-color1;
-  outline-offset: 1px;
-}
-
-.login__button {
-  @include font(20px, 500, 1.2);
-  padding: 10px 20px;
-  border: 2px solid $blue-dark-color;
-  border-radius: 16px;
-  margin: 30px auto 0;
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-}
-
-.login__button:hover {
-  background-color: $blue-dark-color;
-  color: $white-color;
 }
 </style>
