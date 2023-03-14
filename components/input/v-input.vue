@@ -67,8 +67,7 @@ const updateValue = (e: any) => {
 @import '@/assets/scss/_variables.scss';
 
 .form-input {
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin: 30px 0;
   position: relative;
 }
 
