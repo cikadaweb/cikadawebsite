@@ -48,6 +48,7 @@ export default {
     icons: {
       solid: [
         'faHouse',
+        'faRightToBracket',
         'faPenToSquare',
         'faFileArrowDown',
         'faClock',
