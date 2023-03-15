@@ -4,8 +4,19 @@
   </div>
 </template>
 
-<script setup lang="ts">
-
+<script>
+export default {
+  computed: {
+    error() {
+      return this.$store.getters.error;
+    }
+  },
+  watch: {
+    error(value) {
+      alert(value); //ToDO
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

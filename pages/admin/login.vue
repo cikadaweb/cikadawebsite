@@ -22,6 +22,7 @@
       name="password"
       placeholder="Введите пароль"
       width="100%"
+      type="password"
       v-model:value="v$.password.$model"
       :error="v$.password.$errors"
     />
@@ -44,39 +45,59 @@ import vInput from '@/components/input/v-input.vue';
 import vButton from '@/components/button/v-button.vue';
 
 import useVuelidate from '@vuelidate/core';
-import { helpers, minLength, email, maxLength } from '@vuelidate/validators';
+import { helpers, minLength, email, required, maxLength } from '@vuelidate/validators';
 
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted } from 'vue';
+import { useStore, useRouter, useRoute  } from '@nuxtjs/composition-api'
 
 export default {
   layout: 'empty',
   setup() {
+    const store = useStore();
+    const router = useRouter();
+    const route = useRoute();
+
+    onMounted(() => {
+      // ToDO
+      switch (route.value.query.message) {
+        case 'login':
+          alert('Для начала войдите в систему!');
+          break;
+        case 'logout':
+          alert('Вы успешно вышли из системы!');
+          break;
+      }
+    });
+
     const login = ref('');
     const password = ref('');
 
     const rules = computed(() => ({
       login: {
         email: helpers.withMessage('Вы ввели неверный email', email),
+        required: helpers.withMessage('Необходимо заполнить данное поле', required),
       },
       password: {
-        minLength: helpers.withMessage('Минимальная длина: 3 символа', minLength(3))
+        minLength: helpers.withMessage('Минимальная длина: 3 символа', minLength(3)),
+        required: helpers.withMessage('Необходимо заполнить данное поле', required),
       }
     }));
 
     const v$ = useVuelidate(rules, { login, password });
 
     const loginUser = async () => {
-      try {
-        v$.value.$touch();
-        const formData = {
-          login: this.user.email,
-          password: this.user.password
+      v$.value.$touch();
+      if(!v$.value.$errorr) {
+        try {
+          const formData = {
+            login: login.value,
+            password: password.value
+          }
+          await store.dispatch('auth/login', formData);
+          router.push('/admin');
+        } catch (e) {
+          // ToDO loader
         }
-        await this.$store.dispatch('auth/login', formData);
-        this.$router.push('/admin');
-
-      } catch (e) {
-
       }
     }
 
