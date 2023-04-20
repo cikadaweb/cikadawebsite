@@ -114,8 +114,10 @@ const clickOnButton = () => {
   margin-right: 10px;
 }
 
-.btn_icon {
-
+.btn__icon {
+  vertical-align: middle;
+  width: 15px;
+  height: 20px
 }
 
 .btn_medium {

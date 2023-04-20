@@ -3,7 +3,7 @@
     <div class="comment__header">
       <span class="comment__author">Person name</span>
       <span class="comment__date">
-        <fa icon="clock" /> {{ new Date().toLocaleString() }}
+        <fa class="comment__icon" icon="clock" /> {{ new Date().toLocaleString() }}
       </span>
     </div>
     <hr>
@@ -72,5 +72,10 @@ import { useRouter } from '@nuxtjs/composition-api'
 .comment__info {
   @include font(16px, 400, 24px);
   white-space: pre-line;
+}
+
+.comment__icon {
+  width: 18px;
+  height: 18px;
 }
 </style>

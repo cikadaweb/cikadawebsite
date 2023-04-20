@@ -134,4 +134,8 @@ const backToPosts = () => {
   text-align: center;
   padding: 15px 15px 40px;
 }
+.post__icon {
+  width: 18px;
+  height: 18px;
+}
 </style>
