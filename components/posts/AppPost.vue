@@ -9,12 +9,12 @@
     </div>
     <div class="post__header">
       <div class="post__text">
-        <fa icon="clock" />
+        <fa class="post__icon" icon="clock" />
         {{ new Date().toLocaleString() }}
       </div>
       <div
         class="post__text">
-        <fa icon="eye" />
+        <fa class="post__icon" icon="eye" />
         42
       </div>
     </div>
