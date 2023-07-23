@@ -1,4 +1,8 @@
+// Подключение переменных
 @import '@/assets/scss/_variables.scss';
-@import '@/assets/scss/_settings.scss';
-@import '@/assets/scss/_normalize.scss';
+// Подключение mixins
 @import '@/assets/scss/_mixins.scss';
+// Подключение normalize
+@import '@/assets/scss/_normalize.scss';
+// Подключение базовых настроек
+@import '@/assets/scss/_settings.scss';

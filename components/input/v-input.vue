@@ -112,7 +112,7 @@ const updateValue = (e: any) => {
   z-index: -1;
   transition: .3s;
   font-size: 13px;
-  color: $blue-dark-color
+  color: $blue-dark-color;
 }
 .v-enter-active,
 .v-leave-active {
