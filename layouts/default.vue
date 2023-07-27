@@ -1,8 +1,6 @@
 <template>
   <div>
-    <AppContainer>
-      <TheHeader />
-    </AppContainer>
+    <TheHeader />
     <Nuxt />
     <AppContainer>
       <TheFooter />
