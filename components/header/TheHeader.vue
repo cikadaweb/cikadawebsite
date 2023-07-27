@@ -15,7 +15,7 @@
               <li
                 v-for="navigationLink in navigationList"
                 :key="navigationLink.title"
-                @click="closeMobileMenu"
+                @click="clickToLink"
               >
                 <nuxt-link
                   class="menu__link"
@@ -66,8 +66,10 @@ export default Vue.extend({
       document.body.classList.toggle("body_lock");
       this.isShowMobileMenu = !this.isShowMobileMenu;
     },
-    closeMobileMenu() {
-      this.toggleBurgerMenu();
+    clickToLink() {
+      if(this.isShowMobileMenu) {
+        this.toggleBurgerMenu();
+      }
     }
   }
 })
