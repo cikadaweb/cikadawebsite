@@ -28,7 +28,7 @@ import FeaturedWorks from '@/components/portfolio/FeaturedWorks.vue';
 @import '@/assets/scss/_variables.scss';
 
 .recent-posts-container {
-  background-color: $bg-blue-color;
+  background-color: #EDF7FA;
 }
 </style>
 
