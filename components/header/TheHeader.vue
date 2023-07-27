@@ -1,29 +1,41 @@
 <template>
   <header class="header">
-    <nav class="header__nav">
+    <div class="container">
+      <div class="header__navigation">
+        <NuxtLink class="header__logo" to="/">Logo</NuxtLink>
 
-      <nuxt-link class="header__logo" to="/">Logo</nuxt-link>
+        <div>
+          <div class="header__burger" :class="isShowMobileMenu ? 'header__burger_active' : ''" @click="toggleBurgerMenu">
+            <span></span>
+          </div>
 
-      <ul class="header__links header__links_desktop">
-        <li class="header__item" v-for="navigationLink in navigationList" :key="navigationLink.title">
-          <nuxt-link class="header__link" active-class="header__link_active" :to="navigationLink.to">{{ navigationLink.title }}</nuxt-link>
-        </li>
-      </ul>
+          <nav class="menu__body" :class="isShowMobileMenu ? 'menu__body_active' : ''">
 
-      <MobileMenu :navigationList="navigationList"/>
-
-    </nav>
+            <ul class="menu__list">
+              <li
+                v-for="navigationLink in navigationList"
+                :key="navigationLink.title"
+                @click="closeMobileMenu"
+              >
+                <nuxt-link
+                  class="menu__link"
+                  active-class="menu__link_active"
+                  :to="navigationLink.to"
+                >{{ navigationLink.title }}
+                </nuxt-link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
   </header>
 </template>
 
 <script lang="ts">
-import MobileMenu from '@/components/header/MobileMenu.vue';
 
 import Vue from 'vue'
 export default Vue.extend({
-  components: {
-    MobileMenu
-  },
   data() {
     return {
       navigationList: [
@@ -46,6 +58,16 @@ export default Vue.extend({
           },
         },
       ],
+      isShowMobileMenu: false
+    }
+  },
+  methods: {
+    toggleBurgerMenu() {
+      document.body.classList.toggle("body_lock");
+      this.isShowMobileMenu = !this.isShowMobileMenu;
+    },
+    closeMobileMenu() {
+      this.toggleBurgerMenu();
     }
   }
 })
@@ -53,56 +75,138 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .header {
-  margin-bottom: 110px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: $white-color;
+  min-height: 104px;
 }
-
-.header__nav {
+.header__navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 30px;
+  padding: 20px 0;
 }
-
 .header__logo {
+  z-index: 5;
   font-size: 0;
   overflow: hidden;
   text-decoration: none;
   width: 50px;
   height: 50px;
-  background-image: url(../../assets/img/cikada-logo.png);
+  background-image: url(@/assets/img/cikada-logo.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-.header__links {
-  padding: 0;
-  margin: 0 -15px;
+.header__burger {
+  display: none;
+}
+.menu__list {
   list-style: none;
-}
-.header__item {
-  padding: 0 15px;
-}
-
-.header__links_desktop {
   display: flex;
-  justify-content: end;
-  @include for-size(tablet) {
-    display: none;
-  }
+  gap: 15px;
+  flex: 1 0 auto;
+  padding: 0;
+  margin: 0;
 }
-
-.header__link {
+.menu__link {
   @include font(20px, 500, 29px);
   color: $black-color;
   text-decoration: none;
+  transition: all 0.3s ease 0s;
 }
 
-.header__link:hover {
-  color: #6a6e99;
+.menu__link:hover {
+  color: $font-disabled;
 }
-.header__link_active {
-  text-decoration: underline !important;
+.menu__link_active {
+  text-decoration: underline;
 }
 
+@media (max-width: 767px) {
+  .header__burger {
+    z-index: 5;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+  }
+  .header__burger span,
+  .header__burger::before,
+  .header__burger::after {
+    left: 0;
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    transition: all 0.3s ease 0s;
+    background-color: $font-secondary;
+  }
+  .header__burger::before,
+  .header__burger::after {
+    content: '';
+  }
+  .header__burger::before {
+    top: 0;
+  }
+  .header__burger::after {
+    bottom: 0;
+  }
+  .header__burger span {
+    top: 50%;
+    transform: scale(1) translate(0px, -50%);
+  }
+
+  .header__burger .header__burger_active span{
+    transform: scale(0) translate(0px, -50%);
+  }
+  .header__burger .header__burger_active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+  .header__burger .header__burger_active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 50%);
+  }
+
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 100px 30px 30px 30px;
+    transition: left 0.3 ease 0s;
+    overflow: auto;
+    margin-top: 30px;
+  }
+  .menu__body.menu__body_active {
+    left: 0;
+  }
+
+  .menu__body::before {
+    content: '';
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 104px;
+    background-color: $white-color;
+    z-index: 2;
+    box-shadow: 0 2px 12px 0 rgb(0 0 0 / 30%);
+  }
+  .menu__list {
+    flex-direction: column;
+  }
+
+  .menu__link {
+    @include font(25px, 500, 29px);
+    color: $white-color;
+  }
+}
 </style>
