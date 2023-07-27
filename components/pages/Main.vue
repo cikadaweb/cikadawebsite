@@ -1,7 +1,6 @@
 <template>
   <div class="main">
     <div class="main__author">
-
       <div class="main__author-info">
         <h1 class="main__author-name">
           <span class="visually-hidden">Создать сайт, сделать сайт, приложение, wordpress</span>
@@ -19,7 +18,7 @@
       </div>
 
       <div class="main__author__img">
-        <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'cikada-logo.jpg'" />
+        <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'adel-garipov.jpeg'" />
       </div>
     </div>
   </div>
@@ -33,6 +32,7 @@ import vButton from '@/components/button/v-button.vue';
 
 <style lang="scss" scoped>
 .main {
+  padding-top: 114px;
   border-top: 34px solid $gray-color;
   margin-bottom: 71px;
   @include for-size(tablet) {
