@@ -102,9 +102,6 @@ const handleClick = () => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .comment-form {
   margin-bottom: 30px;
 }

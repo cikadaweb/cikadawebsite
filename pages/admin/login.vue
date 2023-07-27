@@ -111,8 +111,6 @@ export default {
 
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
 .login {
   width: 500px;
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);

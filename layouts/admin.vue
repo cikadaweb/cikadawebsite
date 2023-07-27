@@ -17,8 +17,6 @@ import AsideNav from '@/components/admin/AsideNav.vue';
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
 .admin-layout {
   width: 100%;
   height: 100vh;

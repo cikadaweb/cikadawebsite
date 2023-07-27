@@ -25,9 +25,6 @@
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .footer {
   padding-top: 50px;
   padding-bottom: 50px;

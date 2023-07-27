@@ -43,9 +43,6 @@ import { useRouter } from '@nuxtjs/composition-api'
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .comment {
   box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
   border-radius: 16px;

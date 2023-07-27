@@ -37,9 +37,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .recent-posts {
   padding-top: 30px;
   padding-bottom: 30px;

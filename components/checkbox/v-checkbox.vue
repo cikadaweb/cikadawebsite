@@ -58,9 +58,6 @@ const handleClick = (event: any) => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .checkbox {
   position: absolute;
   z-index: -1;

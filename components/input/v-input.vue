@@ -63,8 +63,6 @@ const updateValue = (e: any) => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
 
 .form-input {
   margin: 30px 0;

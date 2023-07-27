@@ -14,8 +14,6 @@ import AppContainer from '@/components/AppContainer.vue';
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
 .error-layout__container {
   display: flex;
   flex-direction: column;

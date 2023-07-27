@@ -18,10 +18,6 @@ import { defineProps, toRefs } from 'vue';
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
-
 .breadcrumb {
   margin-bottom: 20px;
 }

@@ -59,9 +59,6 @@ const updateValue = (e: any) => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .textarea-input {
   position: relative;
   margin-bottom: 20px;

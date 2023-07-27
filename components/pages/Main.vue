@@ -32,9 +32,6 @@ import vButton from '@/components/button/v-button.vue';
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .main {
   border-top: 34px solid $gray-color;
   margin-bottom: 71px;

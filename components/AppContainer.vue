@@ -5,8 +5,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
 .container {
   max-width: 1151px;
   padding: 0 148px;

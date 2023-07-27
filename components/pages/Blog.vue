@@ -36,9 +36,6 @@ export default {
 
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
-
 .blog__title {
   @include font(44px, 700, 60px);
     margin: 0 0 40px;

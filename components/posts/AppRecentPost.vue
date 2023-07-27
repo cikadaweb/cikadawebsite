@@ -56,8 +56,6 @@ const openPost = () => {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/_mixins.scss';
-@import '@/assets/scss/_variables.scss';
 .recent-post {
   position: relative;
   display: flex;
