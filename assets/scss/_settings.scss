@@ -18,6 +18,10 @@ body {
   color: #21243D;
 }
 
+body.body_lock {
+  overflow: hidden;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -35,6 +39,15 @@ img {
   clip: rect(0 0 0 0);
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  max-width: 1152px;
+  padding: 0 148px;
+  margin: 0 auto;
+  @include for-size(tablet) {
+    padding: 0 30px;
+  }
 }
 
 .page-enter-active,
