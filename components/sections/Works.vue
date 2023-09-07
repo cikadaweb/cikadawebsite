@@ -1,6 +1,6 @@
 <template>
   <div class="works">
-    <AppBreadcrumb />
+    <AppBreadcrumb :breadcrumbs="breadcrumbs"/>
     <h1 class="works__title">Работы</h1>
     <div class="works__row">
       <div class="works__column" v-for="work in works" :key="work.id">
@@ -12,9 +12,25 @@
 
 <script>
 import AppWork from '@/components/portfolio/AppWork.vue';
-import AppBreadcrumb from '@/components/breadcrumb/AppBreadcrumb.vue';
+import AppBreadcrumb from '~/components/UI/BaseBreadcrumb.vue';
 
 export default {
+  data() {
+    return {
+      breadcrumbs: [
+        {
+          id: 1,
+          title: 'Главная',
+          url: '/'
+        },
+        {
+          id: 2,
+          title: `Название поста`,
+          url: '/post'
+        },
+      ]
+    }
+  },
   async fetch() {
     try {
       await this.$store.dispatch('works/fetchWorks');
@@ -50,7 +66,7 @@ export default {
 }
 
 .works__column {
-  border-bottom: 1px solid $gray-light-color2;
+  border-bottom: 1px solid $border-gray-light;
   margin-bottom: 30px;
 }
 </style>

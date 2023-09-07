@@ -1,17 +1,33 @@
 <template>
   <div class="contacts">
-    <AppBreadcrumb />
+    <AppBreadcrumb :breadcrumbs="breadcrumbs"/>
     <h1 class="contacts__title">Контакты</h1>
   </div>
 </template>
 
 <script>
-import AppBreadcrumb from '@/components/breadcrumb/AppBreadcrumb.vue';
+import AppBreadcrumb from '~/components/UI/BaseBreadcrumb.vue';
 
 export default {
   components: {
     AppBreadcrumb
-  }
+  },
+  data() {
+    return {
+      breadcrumbs: [
+        {
+          id: 1,
+          title: 'Главная',
+          url: '/'
+        },
+        {
+          id: 2,
+          title: `Название поста`,
+          url: '/post'
+        },
+      ]
+    }
+  },
 }
 </script>
 

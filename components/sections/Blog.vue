@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <AppBreadcrumb />
+    <AppBreadcrumb :breadcrumbs="breadcrumbs"/>
     <h1 class="blog__title">Блог</h1>
     <div class="blog__row">
       <div class="blog__column" v-for="post in posts" :key="post.id">
@@ -12,9 +12,25 @@
 
 <script>
 import AppRecentPost from '@/components/posts/AppRecentPost.vue'
-import AppBreadcrumb from '@/components/breadcrumb/AppBreadcrumb.vue';
+import AppBreadcrumb from '~/components/UI/BaseBreadcrumb.vue';
 
 export default {
+  data() {
+    return {
+      breadcrumbs: [
+        {
+          id: 1,
+          title: 'Главная',
+          url: '/'
+        },
+        {
+          id: 2,
+          title: `Название поста`,
+          url: '/post'
+        },
+      ]
+    }
+  },
   async fetch() {
     try {
       await this.$store.dispatch('posts/fetchPosts');
