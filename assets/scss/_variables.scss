@@ -1,19 +1,29 @@
-$white-color: #FFFFFF;
-$pink-color: #FF6464;
-$pink-light-color: #fa9f9f;
-$black-color: #000000;
+// bg - primary, secondary
+// btn - default, hover, active, error, disabled
+// font
 
-// gray color
-$gray-color: #C4C4C4;
-$gray-light-color1: #8695A4;
-$gray-light-color2: #E0E0E0;
+$bg-primary: #FFFFFF;
+$bg-secondary: #21243D;
+$bg-gray: #C4C4C4;
+$bg-skyblue: #EDF7FA;
 
-// blue color
-$blue-light-color1: rgb(77, 77, 224);
-$blue-light-color2: #00A8CC;
-$blue-dark-color: #21243D;
+$btn-primary-default: #FF6464;
+$btn-primary-hover: #fa9f9f;
 
-// new
-$font-primary: #000000;
-$font-secondary: #21243D;
-$font-disabled: #8695A4;
+$btn-secondary-default: #21243D;
+$btn-secondary-hover: #414879;
+
+$border-default: #21243D;
+$border-secondary: #C4C4C4;
+$border-black: #000000;
+$border-gray: #8695A4;
+$border-gray-light: #E0E0E0;
+
+$font-primary: #21243D;
+$font-secondary: #000000;
+$font-white: #FFFFFF;
+$font-error: #FF6464;
+$font-skyblue: #EDF7FA;
+$font-seablue: #00A8CC;
+$font-active-link:  rgb(77, 77, 224);
+$font-gray: #8695A4;
