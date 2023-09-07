@@ -9,36 +9,38 @@
         <div class="main__author-text">
           Сайты для ваших товаров, услуг и бизнеса.
         </div>
-        <v-button
-          label="Скачать резюме"
+        <BaseButton
           color="primary"
           size="large"
           icon="file-arrow-down"
-        />
+        >Скачать резюме
+        </BaseButton>
       </div>
 
       <div class="main__author__img">
-        <v-picture :classNameContainer="'main__author__picture'" :classNameImage="'main__author__img'" :imageUrl="'adel-garipov.jpeg'" />
+        <BaseImage :img-src="'adel-garipov.jpeg'" :height="243" :width="243" border="rounded-circle"></BaseImage>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import vPicture from '@/components/pictire/v-picture.vue';
-import vButton from '@/components/button/v-button.vue';
+import BaseButton from "~/components/UI/BaseButton.vue";
+import BaseImage from "~/components/UI/BaseImage.vue";
 
 </script>
 
 <style lang="scss" scoped>
+
 .main {
   padding-top: 114px;
-  border-top: 34px solid $gray-color;
+  border-top: 34px solid $border-secondary;
   margin-bottom: 71px;
   @include for-size(tablet) {
     border-top: 0;
   }
 }
+
 .main__author {
   display: flex;
   @include for-size(tablet) {
@@ -59,6 +61,7 @@ import vButton from '@/components/button/v-button.vue';
     text-align: center;
   }
 }
+
 .main__author__img {
   width: calc(100% / 10) * 3;
   @include for-size(tablet) {
@@ -66,9 +69,10 @@ import vButton from '@/components/button/v-button.vue';
     order: -1;
   }
 }
+
 .main__author-name {
   @include font(44px, 700, 60px);
-  color: $blue-dark-color;
+  color: $font-primary;
   margin: 0;
   margin-bottom: 40px;
   max-width: 416px;
@@ -77,9 +81,10 @@ import vButton from '@/components/button/v-button.vue';
     margin-top: 35px;
   }
 }
+
 .main__author-text {
   @include font(16px, 400, 24px);
-  color: $blue-dark-color;
+  color: $font-primary;
   margin-bottom: 50px;
   max-width: 416px;
 }
