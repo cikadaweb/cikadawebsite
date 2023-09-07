@@ -82,7 +82,7 @@ export default Vue.extend({
   left: 0;
   width: 100%;
   z-index: 10;
-  background-color: $white-color;
+  background-color: $bg-primary;
   min-height: 104px;
 }
 .header__navigation {
@@ -117,16 +117,16 @@ export default Vue.extend({
 }
 .menu__link {
   @include font(20px, 500, 29px);
-  color: $black-color;
+  color: $font-secondary;
   text-decoration: none;
   transition: all 0.3s ease 0s;
 }
 
 .menu__link:hover {
-  color: $font-disabled;
+  color: $font-gray;
 }
 .menu__link_active {
-  text-decoration: underline;
+  color: $font-gray;
 }
 
 @media (max-width: 767px) {
@@ -198,7 +198,7 @@ export default Vue.extend({
     top: 0;
     left: 0;
     height: 104px;
-    background-color: $white-color;
+    background-color: $bg-primary;
     z-index: 2;
     box-shadow: 0 2px 12px 0 rgb(0 0 0 / 30%);
   }
@@ -208,7 +208,7 @@ export default Vue.extend({
 
   .menu__link {
     @include font(25px, 500, 29px);
-    color: $white-color;
+    color: $font-white;
   }
 }
 </style>
