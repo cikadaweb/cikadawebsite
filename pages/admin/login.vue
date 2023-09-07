@@ -6,49 +6,57 @@
       method="POST"
       @submit.prevent="loginUser"
     >
-    <legend class="login__title">Авторизация</legend>
+      <legend class="login__title">Авторизация</legend>
 
-    <v-input
-      label="* Логин"
-      name="login"
-      placeholder="Введите логин"
-      width="100%"
-      v-model:value="v$.login.$model"
-      :error="v$.login.$errors"
-    />
 
-    <v-input
-      label="* Пароль"
-      name="password"
-      placeholder="Введите пароль"
-      width="100%"
-      type="password"
-      v-model:value="v$.password.$model"
-      :error="v$.password.$errors"
-    />
-
-    <v-button
-      label="Войти"
-      color="login"
-      size="medium"
-      rounded
-      type="button"
-      icon="right-to-bracket"
-    />
-
+      <div class="login__form__row">
+        <div class="login__form__column">
+          <BaseInput
+            label="* Логин"
+            name="login"
+            placeholder="Введите логин"
+            width="100%"
+            v-model:value="v$.login.$model"
+            :errors="v$.login.$errors"
+          />
+        </div>
+        <div class="login__form__column">
+          <BaseInput
+            label="* Пароль"
+            name="password"
+            placeholder="Введите пароль"
+            width="100%"
+            type="password"
+            v-model:value="v$.password.$model"
+            :errors="v$.password.$errors"
+          />
+        </div>
+        <div class="login__form__column login__form__column-action">
+          <BaseButton
+            color="secondary"
+            size="medium"
+            rounded
+            icon="right-to-bracket"
+            type="button"
+            @click="handleClick"
+          >Войти
+          </BaseButton>
+        </div>
+      </div>
     </form>
   </div>
 </template>
 
 <script>
-import vInput from '@/components/input/v-input.vue';
-import vButton from '@/components/button/v-button.vue';
+import BaseInput from "~/components/UI/BaseInput.vue";
+import BaseButton from "~/components/UI/BaseButton.vue";
 
 import useVuelidate from '@vuelidate/core';
 import { helpers, minLength, email, required, maxLength } from '@vuelidate/validators';
 
 import { computed, ref, onMounted } from 'vue';
 import { useStore, useRouter, useRoute  } from '@nuxtjs/composition-api'
+
 
 export default {
   layout: 'empty',
@@ -105,7 +113,7 @@ export default {
       v$, login, password, loginUser
     }
   },
-  components: { vInput, vButton }
+  components: {BaseButton, BaseInput }
 }
 </script>
 
@@ -125,5 +133,15 @@ export default {
 .login__title {
   @include font(30px, 700, 60px);
   margin-bottom: 20px;
+}
+
+.login__form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.login__form__column-action {
+  align-self: flex-end;
 }
 </style>
