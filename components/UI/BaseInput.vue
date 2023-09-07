@@ -1,7 +1,7 @@
 <template>
-  <div class="form-input" :style="{width: width}">
+  <div class="input" :style="{width: width}">
     <input
-      class="input-text"
+      class="input__text"
       :type="type"
       :name="name"
       :id="name"
@@ -9,14 +9,14 @@
       :value="value"
       @input="updateValue($event)"
       >
-    <label :for="name" class="input-label">{{ label }}</label>
+    <label :for="name" class="input__label">{{ label }}</label>
 
     <TransitionGroup>
       <div
-        class="form-error"
-        v-for="element of error"
-        :key="element.$uid">
-        <div class="form-error__message">{{ element.$message }}</div>
+        class="input__error"
+        v-for="error of errors"
+        :key="error.$uid">
+        {{ error.$message }}
       </div>
     </TransitionGroup>
 
@@ -27,7 +27,7 @@
 const emit = defineEmits(['input']);
 
 const props = defineProps({
-  error: {
+  errors: {
     type: Array,
     required: false,
   },
@@ -64,53 +64,55 @@ const updateValue = (e: any) => {
 
 <style lang="scss" scoped>
 
-.form-input {
-  margin: 30px 0;
+.input {
   position: relative;
 }
 
-.form-error {
-  background: $pink-color;
-  margin-top: 4px;
+.input__error {
+  @include font(13px, 500, 1.2);
+  color: $font-error;
+  padding: 3px 0;
   border-radius: 7px;
-  font-size: 13px;
-  color: #fff;
-  padding: 5px;
+  margin-top: 4px;
 }
 
-.input-text {
-  border: 1px solid $gray-light-color1;
-  padding: 0 10px;
-  height: 40px;
-  border-radius: 7px;
-  font-size: 15px;
+.input__text {
+  @include font(16px, 400, 1.2);
   width: 100%;
   position: relative;
   z-index: 1;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid $border-gray;
+  border-radius: 7px;
+
+  &:focus {
+    border: 2px solid $border-default;
+    outline: none;
+  }
 }
 
-.input-text:focus+.input-label {
+.input__text:focus+.input__label {
   z-index: 1;
   opacity: 1;
   top: -20px;
 }
 
-.input-text:not(:placeholder-shown)+.input-label {
+.input__text:not(:placeholder-shown)+.input__label {
   z-index: 1;
   opacity: 1;
   top: -20px;
 }
 
-.input-label {
-  font-weight: bold;
+.input__label {
+  @include font(13px, 700, 1.2);
+  color: $font-primary;
   display: block;
   position: absolute;
   top: 20px;
   opacity: 0;
   z-index: -1;
   transition: .3s;
-  font-size: 13px;
-  color: $blue-dark-color;
 }
 .v-enter-active,
 .v-leave-active {
