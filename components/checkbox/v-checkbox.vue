@@ -85,17 +85,17 @@ const handleClick = (event: any) => {
   }
 
   &:checked+label::before {
-    border-color: $blue-dark-color;
-    background-color: $blue-dark-color;
+    border-color: $border-default;
+    background-color: $bg-secondary;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
   }
 
   &:not(:disabled):not(:checked)+label:hover::before {
-    border-color: $gray-light-color1;
+    border-color: $border-gray;
   }
 
   &:not(:disabled):active+label::before {
-    background-color: $blue-dark-color;
+    background-color: $bg-secondary;
     border: 1px solid #ECEBED;
   }
 
@@ -104,7 +104,7 @@ const handleClick = (event: any) => {
   }
 
   &:focus:not(:checked)+label::before {
-    border-color: $blue-dark-color;
+    border-color: $border-default;
   }
 
   &:disabled+label::before {
