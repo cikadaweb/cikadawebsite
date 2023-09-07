@@ -50,13 +50,13 @@
 
 .aside-nav__link {
   @include font(20px, 500, 29px);
-  color: $black-color;
+  color: $font-secondary;
   text-decoration: none;
   text-transform: uppercase;
 }
 
 .aside-nav__link_active {
-  color: $blue-light-color1;
+  color: $font-active-link;
 }
 
 .aside-nav__icon {
