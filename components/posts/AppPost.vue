@@ -19,16 +19,13 @@
       </div>
     </div>
     <div class="post__body">
-      <v-picture :classNameContainer="'post__picture'" :classNameImage="'post__img'"
-        :imageUrl="'cikada-logo.jpg'" />
+      <BaseImage :img-src="'cikada-logo.jpg'" :height="460" :width="681" />
       <p class="post__info">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore excepturi tempora iusto! Aspernatur nulla itaque debitis amet ad blanditiis temporibus maxime quis molestiae molestias alias enim odit voluptates fuga, natus earum vitae quos perferendis sed obcaecati dolorem quam dignissimos harum. Distinctio expedita, autem provident dolore adipisci fugit placeat! Temporibus, commodi?
+        {{ item.text }}
       </p>
     </div>
 
-    <div class="post_cooments-form">
-      <AppCommentForm />
-    </div>
+    <AppCommentForm class="post__comment-from"/>
 
     <div class="post__comments" v-if="true">
       <h3 class="post__comments-title">Комментарии</h3>
@@ -42,7 +39,6 @@
 </template>
 
 <script setup lang="ts">
-import vPicture from '@/components/pictire/v-picture.vue';
 import AppCommentForm from '@/components/posts/AppCommentForm.vue';
 import AppComment from '@/components/posts/AppComment.vue';
 
@@ -51,6 +47,7 @@ import {
 } from 'vue';
 
 import { useRouter } from '@nuxtjs/composition-api'
+import BaseImage from "~/components/UI/BaseImage.vue";
 
 interface IPropsPost {
   id: number,
@@ -80,15 +77,12 @@ const backToPosts = () => {
 </script>
 
 <style lang="scss" scoped>
-.post {
-
-}
 
 .post__header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
+  padding: 15px 0;
 }
 
 .post__text {
@@ -105,9 +99,11 @@ const backToPosts = () => {
   width: 20px;
   height: 20px;
   padding: 5px;
+  transition: all 0.3s ease;
 }
+
 .post__back-icon:hover {
-  background-color: $gray-color;
+  background-color: $bg-skyblue;
   border-radius: 50px;
   cursor: pointer;
 }
@@ -116,6 +112,10 @@ const backToPosts = () => {
   @include font(16px, 400, 24px);
   padding: 30px 0;
   margin: 0;
+}
+
+.post__comment-from {
+  margin-top: 60px;
 }
 
 .post__comments {
@@ -131,6 +131,7 @@ const backToPosts = () => {
   text-align: center;
   padding: 15px 15px 40px;
 }
+
 .post__icon {
   width: 18px;
   height: 18px;

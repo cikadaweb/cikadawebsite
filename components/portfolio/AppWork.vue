@@ -1,10 +1,9 @@
 <template>
   <div class="work-card">
-
     <div class="work-card__row">
       <div class="work-card__column work-card__column_image">
         <a class="work-card__link" :href="item.link" target="_blank">
-          <v-picture :classNameContainer="'work-card__picture'" :classNameImage="'work-card__img'" :imageUrl="item.image_url" />
+          <BaseImage :img-src="item.image_url" :height="180" :width="246" border="rounded"/>
         </a>
       </div>
 
@@ -26,11 +25,12 @@
 </template>
 
 <script setup lang="ts">
-import vPicture from '@/components/pictire/v-picture.vue';
+import BaseImage from "~/components/UI/BaseImage.vue";
 
 import {
   defineProps, PropType,
 } from 'vue';
+
 
 interface IPropsWork {
   id: number,
@@ -52,9 +52,6 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
-.work-card {
-
-}
 
 .work-card__row {
   display: flex;
@@ -101,20 +98,20 @@ const props = defineProps({
 
 .work-card__info__badge {
   @include font(18px, 900, 60px);
-  color: $white-color;
-  background: $blue-dark-color;
+  color: $font-white;
+  background: $font-primary;
   padding: 2px 10px;
   border-radius: 16px;
 }
 
 .work-card__info__tag {
   @include font(20px, 400, 29px);
-  color: $gray-light-color1;
+  color: $font-gray;
   margin-left: 20px;
 }
 
 .work-card__info__text {
   @include font(16px, 400, 24px);
-  color: $blue-dark-color;
+  color: $font-primary;
 }
 </style>
