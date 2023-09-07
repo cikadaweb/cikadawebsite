@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import AppWork from '@/components/portfolio/AppWork.vue';
+import AppWork from '~/components/portfolio/AppWork.vue';
 
 export default {
   async fetch() {
@@ -48,11 +48,11 @@ export default {
   height: 36px;
   left: 149px;
   top: 991px;
-  background: $gray-color;
+  background-color: $bg-gray;
 }
 .featured-works__title {
   @include font(22px, 400, 60px);
-  color: $blue-dark-color;
+  color: $font-primary;
   margin-bottom: 20px;
   @include for-size(tablet) {
     text-align: center;
@@ -64,7 +64,7 @@ export default {
   margin-bottom: 83px
 }
 .featured-works__column {
-  border-bottom: 1px solid $gray-light-color2;
+  border-bottom: 1px solid $border-gray-light;
   margin-bottom: 30px;
 }
 .featured-works__column:last-child {

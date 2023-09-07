@@ -4,7 +4,7 @@
       <div class="recent-posts__title">
         Последние посты
       </div>
-      <nuxt-link class="recent-posts__link" to="/post">Все</nuxt-link>
+      <Nuxt-link class="recent-posts__link" to="/post">Все</Nuxt-link>
     </div>
     <div class="recent-posts__row">
       <div class="recent-posts__column" v-for="post in posts" :key="post.id">
@@ -15,7 +15,8 @@
 </template>
 
 <script>
-import AppRecentPost from '@/components/posts/AppRecentPost.vue';
+// ToDo TypeScript
+import AppRecentPost from '~/components/posts/AppRecentPost.vue';
 
 export default {
   async fetch() {
@@ -37,10 +38,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .recent-posts {
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
 .recent-posts__nav {
   display: flex;
   justify-content: space-between;
@@ -49,19 +52,22 @@ export default {
     justify-content: center;
   }
 }
+
 .recent-posts__title {
   @include font(22px, 400, 60px);
-  color: $blue-dark-color;
+  color: $font-primary;
 }
+
 .recent-posts__link {
   display: inline-block;
   @include font(16px, 400, 24px);
-  color: $blue-light-color2;
+  color: $font-seablue;
   text-decoration: none;
   @include for-size(tablet) {
     display: none;
   }
 }
+
 .recent-posts__row {
   display: flex;
   margin: 0 -10px;
@@ -69,6 +75,7 @@ export default {
     flex-wrap: wrap;
   }
 }
+
 .recent-posts__column {
   width: calc(100% / 10) * 5;
   padding: 0 10px;

@@ -18,7 +18,7 @@
       </div>
 
       <div class="main__author__img">
-        <BaseImage :img-src="'adel-garipov.jpeg'" :height="243" :width="243" border="rounded-circle"></BaseImage>
+        <BaseImage :img-src="'adel-garipov.jpeg'" :height="243" :width="243" border="rounded-circle" />
       </div>
     </div>
   </div>
