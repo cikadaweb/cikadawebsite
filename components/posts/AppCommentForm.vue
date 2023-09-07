@@ -7,41 +7,47 @@
   >
     <h3 class="comment-form__title">Добавить комментарий</h3>
 
-    <v-input
-      label="* Ваше имя"
-      name="name"
-      placeholder="Введите имя"
-      width="100%"
-      v-model:value="v.commentAuthor.$model"
-      :error="v.commentAuthor.$errors"
-    />
+    <div class="comment-form__row">
+      <div class="comment-form__column">
+        <BaseInput
+          label="* Ваше имя"
+          name="name"
+          placeholder="Введите имя"
+          width="100%"
+          v-model:value="v.commentAuthor.$model"
+          :errors="v.commentAuthor.$errors"
+        />
+      </div>
+      <div class="comment-form__column">
+        <BaseTextarea
+          label="* Текст сообщения"
+          name="text"
+          placeholder="Введите текст комментария"
+          v-model:value="v.commentText.$model"
+          :error="v.commentText.$errors"
+        />
+      </div>
+      <div class="comment-form__column comment-form__column_action">
+        <BaseButton
+          color="primary"
+          size="medium"
+          rounded
+          icon="pen-to-square"
+          type="submit"
+          @click="handleClick"
+        >Добавить комментарий
+        </BaseButton>
+      </div>
+    </div>
 
-    <v-textarea
-      label="* Текст сообщения"
-      name="text"
-      placeholder="Введите текст комментария"
-      v-model:value="v.commentText.$model"
-      :error="v.commentText.$errors"
-    />
+<!--    <v-checkbox-->
+<!--      label="Согласен на обработку данных"-->
+<!--      id="isAgree"-->
+<!--      name="isAgree"-->
+<!--      v-model="isAgree"-->
+<!--    />-->
 
-    <v-button
-      label="Добавить комментарий"
-      color="primary"
-      size="medium"
-      rounded
-      type="submit"
-      icon="pen-to-square"
-      @click="handleClick"
-    />
-
-    <!-- <v-checkbox
-      label="Согласен на обработку"
-      id="isAgree"
-      name="isAgree"
-      v-model="isAgree"
-    />
-
-    <v-checkbox-group v-model="selectedHeroes" name="'heroes'" :options="listOfHeroes" /> -->
+<!--    <v-checkbox-group v-model="selectedHeroes" name="'heroes'" :options="listOfHeroes" />-->
 
   </form>
 </template>
@@ -49,19 +55,19 @@
 <script setup lang="ts">
 import vCheckbox from '@/components/checkbox/v-checkbox.vue';
 import vCheckboxGroup from '@/components/checkbox/v-checkbox-group.vue';
-import vInput from '@/components/input/v-input.vue';
-import vTextarea from '@/components/input/v-textarea.vue';
-import vButton from '@/components/button/v-button.vue';
+import BaseButton from "~/components/UI/BaseButton.vue";
+import BaseInput from "~/components/UI/BaseInput.vue";
 
 import useVuelidate from '@vuelidate/core';
-import { helpers, minLength, maxLength } from '@vuelidate/validators';
+import {helpers, minLength, maxLength, numeric} from '@vuelidate/validators';
 
 import {
   computed,
   defineProps, PropType, ref
 } from 'vue';
+import BaseTextarea from "~/components/UI/BaseTextarea.vue";
 
-// const isAgree = ref(false);
+const isAgree = ref(false);
 
 // const listOfHeroes = ref([
 //   { name: 'Spider Man', id: 'h1' },
@@ -85,10 +91,10 @@ const submitForm = () => {
 
 const rules = computed(() => ({
   commentAuthor: {
-    minLength: helpers.withMessage('Минимальная длина: 3 символа', minLength(3))
+    minLength: helpers.withMessage('Минимальная длина: 10 символов', minLength(5)),
   },
   commentText: {
-    minLength: helpers.withMessage('Минимальная длина: 10 символов', minLength(10)),
+    minLength: helpers.withMessage('Минимальная длина: 15 символов', minLength(10)),
     maxLength: helpers.withMessage('Максимальная длина: 100 символов', maxLength(100))
   },
 }));
@@ -104,6 +110,16 @@ const handleClick = () => {
 <style lang="scss" scoped>
 .comment-form {
   margin-bottom: 30px;
+}
+
+.comment-form__row {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.comment-form__column_action {
+  align-self: flex-end;
 }
 
 .comment-form__title {

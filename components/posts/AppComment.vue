@@ -55,6 +55,8 @@ import { useRouter } from '@nuxtjs/composition-api'
 
 .comment__header {
   display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -64,6 +66,9 @@ import { useRouter } from '@nuxtjs/composition-api'
 
 .comment__date {
   @include font(14px, 400, 24px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .comment__info {
