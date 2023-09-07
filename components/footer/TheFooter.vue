@@ -65,7 +65,7 @@
 }
 .footer__copyright {
   @include font(14px, 400, 21px);
-  color: $blue-dark-color;
+  color: $font-primary;
   text-align: center;
   margin-bottom: 50px;
 }
