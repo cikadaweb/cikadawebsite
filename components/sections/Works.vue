@@ -25,8 +25,8 @@ export default {
         },
         {
           id: 2,
-          title: `Название поста`,
-          url: '/post'
+          title: 'Работы',
+          url: '/works'
         },
       ]
     }
@@ -50,6 +50,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.works {
+  padding-top: 114px;
+}
+
 .works__title {
   @include font(44px, 700, 60px);
     margin: 0 0 40px;

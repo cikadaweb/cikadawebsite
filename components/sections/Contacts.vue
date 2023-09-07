@@ -22,8 +22,8 @@ export default {
         },
         {
           id: 2,
-          title: `Название поста`,
-          url: '/post'
+          title: 'Контакты',
+          url: '/contacts'
         },
       ]
     }
@@ -32,6 +32,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.contacts {
+  padding-top: 114px;
+}
+
 .contacts__title {
   @include font(44px, 700, 60px);
   margin: 0 0 40px;

@@ -25,7 +25,7 @@ export default {
         },
         {
           id: 2,
-          title: `Название поста`,
+          title: 'Название поста',
           url: '/post'
         },
       ]
@@ -49,9 +49,12 @@ export default {
 }
 </script>
 
-
-
 <style lang="scss" scoped>
+
+.blog {
+  padding-top: 114px;
+}
+
 .blog__title {
   @include font(44px, 700, 60px);
     margin: 0 0 40px;
@@ -64,10 +67,6 @@ export default {
 .blog__row {
   display: flex;
   flex-direction: column;
-}
-
-.blog__column {
-
 }
 
 .blog__column+.blog__column {
