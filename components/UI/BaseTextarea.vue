@@ -1,7 +1,7 @@
 <template>
-  <div class="textarea-input">
+  <div class="textarea">
     <textarea
-      class="textarea-text"
+      class="textarea__text"
       :type="type"
       :name="name"
       :id="name"
@@ -9,16 +9,16 @@
       @input="updateValue($event)"
     ></textarea>
 
-    <label class="textarea-label" :for="name" >{{ label }}</label>
+    <label class="textarea__label" :for="name" >{{ label }}</label>
 
-    <TransitionGroup>
-    <div
-      class="textarea-error"
-      v-for="element of error"
-      :key="element.$uid">
-      <div class="textarea-error__message">{{ element.$message }}</div>
-    </div>
-  </TransitionGroup>
+    <TransitionGroup class="textarea__error-container">
+      <div
+        class="textarea__error"
+        v-for="element of error"
+        :key="element.$uid">
+        {{ element.$message }}
+      </div>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -59,53 +59,62 @@ const updateValue = (e: any) => {
 </script>
 
 <style lang="scss" scoped>
-.textarea-input {
+.textarea {
   position: relative;
-  margin-bottom: 20px;
 }
 
-.textarea-error {
-  background: $pink-color;
-  margin-top: 4px;
+.input__error-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.textarea__error {
+  @include font(13px, 500, 1.2);
+  color: $font-error;
+  padding: 3px 0;
   border-radius: 7px;
-  font-size: 13px;
-  color: #fff;
-  padding: 5px;
+  margin-top: 4px;
 }
 
-.textarea-label {
+.textarea__text {
+  @include font(16px, 400, 24px);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 200px;
+  padding: 15px 10px;
+  border: 1px solid $border-gray;
+  border-radius: 7px;
+  resize: none;
+
+  &:focus {
+    border: 2px solid $border-default;
+    outline: none;
+  }
+}
+
+.textarea__text:focus+.textarea__label {
+  z-index: 1;
+  opacity: 1;
+  top: -25px;
+}
+
+.textarea__text:focus:not(:placeholder-shown)+.textarea__label {
+  z-index: 1;
+  opacity: 1;
+  top: -25px;
+}
+
+.textarea__label {
+  @include font(13px, 700, 1.2);
   display: block;
-  @include font(13px, 700, 24px);
+  color: $font-primary;
   position: absolute;
   top: 25px;
   opacity: 0;
   z-index: -1;
   transition: .3s;
-  color: $blue-dark-color;
-}
-
-.textarea-text {
-  position: relative;
-  z-index: 1;
-  @include font(16px, 400, 24px);
-  width: 100%;
-  height: 200px;
-  border: 1px solid $gray-light-color1;
-  border-radius: 7px;
-  padding: 15px 10px;
-  resize: none;
-}
-
-.textarea-text:focus+.textarea-label {
-  z-index: 1;
-  opacity: 1;
-  top: -25px;
-}
-
-.textarea-text:focus:not(:placeholder-shown)+.textarea-label {
-  z-index: 1;
-  opacity: 1;
-  top: -25px;
 }
 
 .v-enter-active,
