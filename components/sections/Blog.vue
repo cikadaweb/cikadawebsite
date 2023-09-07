@@ -25,7 +25,7 @@ export default {
         },
         {
           id: 2,
-          title: 'Название поста',
+          title: 'Блог',
           url: '/post'
         },
       ]
