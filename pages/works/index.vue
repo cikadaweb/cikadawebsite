@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <AppContainer>
-      <Works />
-    </AppContainer>
+  <div class="container">
+    <Works />
   </div>
 </template>
 
 <script setup lang="ts">
-import AppContainer from '@/components/AppContainer.vue';
-import Works from '@/components/pages/Works.vue';
+import Works from '~/components/sections/Works.vue';
 
 </script>

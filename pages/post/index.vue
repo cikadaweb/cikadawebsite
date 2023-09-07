@@ -1,14 +1,11 @@
 <template>
-  <div>
-    <AppContainer>
-      <Blog />
-    </AppContainer>
+  <div class="container">
+    <Blog />
   </div>
 </template>
 
 <script setup lang="ts">
-import AppContainer from '@/components/AppContainer.vue';
-import Blog from '@/components/pages/Blog.vue';
+import Blog from '~/components/sections/Blog.vue';
 
 </script>
 

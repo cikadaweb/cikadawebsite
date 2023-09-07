@@ -1,19 +1,14 @@
 <template>
   <div class="error-layout">
-    <AppContainer class="error-layout__container">
+    <div class="container error-layout__container">
       <h1 class="error-layout__title">Упс, Ошибка 404 - такой страницы не существует</h1>
-      <nuxt-link class="error-layout__link" to="/">Вернуться на главную <fa icon="reply-all"/></nuxt-link>
-    </AppContainer>
+      <Nuxt-link class="error-layout__link" to="/">Вернуться на главную <fa icon="reply-all"/></Nuxt-link>
+    </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import AppContainer from '@/components/AppContainer.vue';
-
-
-</script>
-
 <style lang="scss" scoped>
+
 .error-layout__container {
   display: flex;
   flex-direction: column;
@@ -24,7 +19,7 @@ import AppContainer from '@/components/AppContainer.vue';
 
 .error-layout__title {
   @include font(44px, 700, 60px);
-  color: $blue-dark-color;
+  color: $font-primary;
   margin: 0;
   text-align: center;
 }
@@ -32,6 +27,6 @@ import AppContainer from '@/components/AppContainer.vue';
 .error-layout__link {
   @include font(26px, 700, 38px);
   text-decoration: none;
-  color: $blue-light-color1 ;
+  color: $font-active-link;
 }
 </style>

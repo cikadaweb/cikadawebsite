@@ -2,14 +2,13 @@
   <div>
     <TheHeader />
     <Nuxt />
-    <AppContainer>
+    <div class="container">
       <TheFooter />
-    </AppContainer>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import AppContainer from '@/components/AppContainer.vue';
 import TheHeader from '@/components/header/TheHeader.vue';
 import TheFooter from '@/components/footer/TheFooter.vue';
 

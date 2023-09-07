@@ -1,14 +1,11 @@
 <template>
-  <div>
-    <AppContainer>
-      <Post />
-    </AppContainer>
+  <div class="container">
+    <PostSection />
   </div>
 </template>
 
 <script lang="ts">
-import AppContainer from '@/components/AppContainer.vue';
-import Post from '@/components/pages/Post.vue';
+import PostSection from '~/components/sections/post-page/PostSection.vue';
 
 import Vue from 'vue'
 export default Vue.extend({
@@ -16,7 +13,7 @@ export default Vue.extend({
     return Boolean(params.id)
   },
   components: {
-    AppContainer, Post
+    PostSection
   }
 })
 </script>

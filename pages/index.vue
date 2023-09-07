@@ -1,34 +1,30 @@
 <template>
   <div>
-    <AppContainer>
-      <Main />
-    </AppContainer>
-
-    <div class="recent-posts-container">
-      <AppContainer>
-        <RecentPosts />
-      </AppContainer>
+    <div class="container">
+      <MainSection />
     </div>
 
-    <AppContainer>
-      <FeaturedWorks />
-    </AppContainer>
+    <div class="recent-posts-container">
+      <div class="container">
+        <RecentPostsSection />
+      </div>
+    </div>
+
+    <div class="container">
+      <PortfolioSection />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import AppContainer from '@/components/AppContainer.vue';
-import Main from '@/components/pages/Main.vue';
-import RecentPosts from '@/components/posts/RecentPosts.vue';
-import FeaturedWorks from '@/components/portfolio/FeaturedWorks.vue';
-
+import MainSection from '~/components/sections/main-page/MainSection.vue';
+import RecentPostsSection from '~/components/sections/main-page/RecentPostsSection.vue';
+import PortfolioSection from '~/components/sections/main-page/PortfolioSection.vue';
 </script>
 
 <style lang="scss">
-@import '@/assets/scss/_variables.scss';
-
 .recent-posts-container {
-  background-color: #EDF7FA;
+  background-color: $bg-skyblue;
 }
 </style>
 

@@ -1,13 +1,12 @@
 <template>
   <div>
-    <AppContainer>
+    <div class="container">
       <Contacts />
-    </AppContainer>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import AppContainer from '@/components/AppContainer.vue';
-import Contacts from '@/components/pages/Contacts.vue';
+import Contacts from '~/components/sections/Contacts.vue';
 
 </script>
